@@ -14,9 +14,49 @@ import {
   Server,
   Workflow,
   Database,
-  Monitor
+  Monitor,
+  Activity,
+  BarChart3,
+  Package,
+  Anchor,
+  Eye,
+  ShieldAlert
 } from "lucide-react";
+import { 
+  SiDocker, 
+  SiKubernetes, 
+  SiTerraform, 
+  SiAnsible, 
+  SiHelm, 
+  SiArgo, 
+  SiGithubactions, 
+  SiJenkins, 
+  SiPrometheus, 
+  SiGrafana, 
+  SiSonarqubecloud, 
+  SiDynatrace
+} from "react-icons/si";
+import { FaAws } from "react-icons/fa";
+import { Brain, Sparkles } from "lucide-react";
 import { useState, useEffect } from "react";
+
+const CORE_TECH = [
+  { name: "AWS", icon: <FaAws size={40} />, color: "#FF9900" },
+  { name: "Docker", icon: <SiDocker size={40} />, color: "#2496ED" },
+  { name: "Kubernetes", icon: <SiKubernetes size={40} />, color: "#326CE5" },
+  { name: "Terraform", icon: <SiTerraform size={40} />, color: "#7B42BC" },
+  { name: "Ansible", icon: <SiAnsible size={40} />, color: "#EE0000" },
+  { name: "Helm", icon: <SiHelm size={40} />, color: "#0F1628" },
+  { name: "ArgoCD", icon: <SiArgo size={40} />, color: "#EF7B4D" },
+  { name: "GitHub Actions", icon: <SiGithubactions size={40} />, color: "#2088FF" },
+  { name: "Jenkins", icon: <SiJenkins size={40} />, color: "#D24939" },
+  { name: "Prometheus", icon: <SiPrometheus size={40} />, color: "#E6522C" },
+  { name: "Grafana", icon: <SiGrafana size={40} />, color: "#F46800" },
+  { name: "SonarQube", icon: <SiSonarqubecloud size={40} />, color: "#4E9BCD" },
+  { name: "Dynatrace", icon: <SiDynatrace size={40} />, color: "#734796" },
+  { name: "SageMaker", icon: <Brain size={40} />, color: "#FF9900" },
+  { name: "Bedrock", icon: <Sparkles size={40} />, color: "#FF9900" },
+];
 
 const SKILLS = [
   {
@@ -219,6 +259,49 @@ export default function App() {
         </motion.div>
       </section>
 
+      {/* Core Tech Grid (Stable) */}
+      <div className="py-24 border-y border-white/5 bg-black/20 relative overflow-hidden">
+        {/* Animated grid background */}
+        <div className="absolute inset-0 opacity-[0.05]" 
+          style={{ 
+            backgroundImage: `linear-gradient(to right, #4f4f4f 1px, transparent 1px), linear-gradient(to bottom, #4f4f4f 1px, transparent 1px)`,
+            backgroundSize: '60px 60px'
+          }} 
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
+        
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-y-16 gap-x-8 justify-items-center">
+            {CORE_TECH.map((tech, idx) => (
+              <motion.div 
+                key={tech.name}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.03 }}
+                className="flex flex-col items-center gap-6 group cursor-default relative"
+              >
+                {/* Hover Glow */}
+                <div 
+                  className="absolute inset-0 -m-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-3xl rounded-full"
+                  style={{ background: `radial-gradient(circle, ${tech.color}33 0%, transparent 70%)` }}
+                />
+                
+                <div 
+                  className="relative z-10 transition-all duration-500 group-hover:scale-110 group-hover:brightness-125 drop-shadow-[0_0_15px_rgba(0,0,0,0.5)]"
+                  style={{ color: tech.color }}
+                >
+                  {tech.icon}
+                </div>
+                <span className="relative z-10 text-[11px] font-mono font-bold text-gray-500 group-hover:text-gray-300 transition-colors uppercase tracking-[0.2em]">
+                  {tech.name}
+                </span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+
       {/* Skills Section */}
       <section id="skills" className="py-24 px-6 max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
@@ -339,30 +422,35 @@ export default function App() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-32 px-6 max-w-7xl mx-auto text-center">
+      <section id="contact" className="py-20 px-6 max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="glass rounded-[3rem] p-16 md:p-24"
+          className="glass rounded-[2rem] p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-10"
         >
-          <h2 className="text-5xl md:text-7xl font-bold mb-8 tracking-tighter">Let's build something <span className="text-gradient">reliable</span>.</h2>
-          <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
-            Currently open to new opportunities and collaborations. Feel free to reach out for a chat about DevOps, Cloud, or Platform Engineering.
-          </p>
-          <div className="flex flex-wrap justify-center gap-6">
+          <div className="text-center md:text-left max-w-xl">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight">
+              Let's build something <span className="text-gradient">reliable</span>.
+            </h2>
+            <p className="text-gray-400">
+              Open to new opportunities in DevOps, Cloud, and Platform Engineering.
+            </p>
+          </div>
+          
+          <div className="flex flex-col sm:flex-row items-center gap-4 shrink-0">
             <a 
               href="mailto:wasimahamad.mulla@gmail.com" 
-              className="px-10 py-5 bg-blue-600 text-white rounded-full font-bold hover:bg-blue-700 transition-all hover:scale-105 flex items-center gap-3"
+              className="w-full sm:w-auto px-8 py-4 bg-blue-600 text-white rounded-2xl font-bold hover:bg-blue-700 transition-all hover:scale-105 flex items-center justify-center gap-3 shadow-lg shadow-blue-500/20"
             >
               <Mail className="w-5 h-5" /> Say Hello
             </a>
-            <div className="flex gap-4">
-              <a href="https://github.com/vasssim-portfolio/" target="_blank" className="w-16 h-16 glass rounded-full flex items-center justify-center hover:bg-white/10 transition-colors">
-                <Github className="w-6 h-6" />
+            <div className="flex gap-3">
+              <a href="https://github.com/vasssim-portfolio/" target="_blank" className="w-14 h-14 glass rounded-2xl flex items-center justify-center hover:bg-white/10 transition-colors group">
+                <Github className="w-6 h-6 group-hover:scale-110 transition-transform" />
               </a>
-              <a href="https://linkedin.com/in/wasimahamad" target="_blank" className="w-16 h-16 glass rounded-full flex items-center justify-center hover:bg-white/10 transition-colors">
-                <Linkedin className="w-6 h-6" />
+              <a href="https://linkedin.com/in/wasimahamad" target="_blank" className="w-14 h-14 glass rounded-2xl flex items-center justify-center hover:bg-white/10 transition-colors group">
+                <Linkedin className="w-6 h-6 group-hover:scale-110 transition-transform" />
               </a>
             </div>
           </div>
