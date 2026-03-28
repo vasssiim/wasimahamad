@@ -96,6 +96,24 @@ const PROJECTS = [
       "Built Azure DevOps pipelines for Terraform plan/apply and microservices releases with Key Vault integration.",
       "Deployed Dockerized services to AKS via ACR and Helm, enabling rolling updates and autoscaling."
     ]
+  },
+  {
+    title: "Cloud-Native ETL Platform on AWS",
+    client: "Data Engineering Project",
+    points: [
+      "Architected a hybrid ETL platform using AWS Glue and Amazon EMR for large-scale serverless data processing.",
+      "Implemented AWS Step Functions to orchestrate complex workloads with dynamic EMR cluster provisioning.",
+      "Built a scalable S3/Lambda ingestion layer using medallion architecture for raw and processed data zones."
+    ]
+  },
+  {
+    title: "DevSecOps & IAM Governance Automation",
+    client: "Security & Compliance Project",
+    points: [
+      "Built an enterprise-grade DevSecOps pipeline in Azure DevOps using Okta for automated identity lifecycle governance.",
+      "Implemented Terraform for HIPAA-aligned Azure resource provisioning with version-controlled, auditable deployments.",
+      "Integrated SonarQube static analysis into CI pipelines to identify security vulnerabilities early in the SDLC."
+    ]
   }
 ];
 
@@ -202,32 +220,40 @@ export default function App() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-32 px-6 max-w-7xl mx-auto">
-        <div className="mb-20">
-          <h2 className="text-4xl font-bold mb-4">Technical Expertise</h2>
-          <p className="text-gray-400 max-w-xl">Specialized in Kubernetes, Terraform, CI/CD automation, and observability across major cloud platforms.</p>
+      <section id="skills" className="py-24 px-6 max-w-7xl mx-auto">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+          <div>
+            <h2 className="text-3xl font-bold mb-3">Technical Expertise</h2>
+            <p className="text-gray-400 max-w-xl">Specialized in Kubernetes, Terraform, CI/CD automation, and observability.</p>
+          </div>
+          <div className="flex gap-2">
+            <div className="px-3 py-1 rounded-full glass text-[10px] font-mono text-blue-400">CLOUD NATIVE</div>
+            <div className="px-3 py-1 rounded-full glass text-[10px] font-mono text-emerald-400">AUTOMATION</div>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {SKILLS.map((skill, idx) => (
             <motion.div
               key={skill.category}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              className="p-8 rounded-3xl glass hover:border-blue-500/50 transition-colors group"
+              transition={{ delay: idx * 0.05 }}
+              className="p-5 rounded-2xl glass hover:bg-white/[0.03] transition-all group flex items-start gap-4"
             >
-              <div className="w-12 h-12 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-400 mb-6 group-hover:scale-110 transition-transform">
+              <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 shrink-0 group-hover:bg-blue-500/20 transition-colors">
                 {skill.icon}
               </div>
-              <h3 className="text-xl font-semibold mb-4">{skill.category}</h3>
-              <div className="flex flex-wrap gap-2">
-                {skill.items.map(item => (
-                  <span key={item} className="px-3 py-1 rounded-lg bg-white/5 text-sm text-gray-400 border border-white/5">
-                    {item}
-                  </span>
-                ))}
+              <div>
+                <h3 className="text-sm font-semibold mb-2 text-gray-200">{skill.category}</h3>
+                <div className="flex flex-wrap gap-1.5">
+                  {skill.items.map(item => (
+                    <span key={item} className="px-2 py-0.5 rounded-md bg-white/5 text-[11px] text-gray-400 border border-white/5">
+                      {item}
+                    </span>
+                  ))}
+                </div>
               </div>
             </motion.div>
           ))}
