@@ -9,6 +9,7 @@ import {
   Github, 
   Linkedin, 
   Mail, 
+  Phone,
   ExternalLink, 
   ChevronRight,
   Server,
@@ -232,20 +233,42 @@ export default function App() {
           <p className="text-xl md:text-2xl text-gray-400 font-light leading-relaxed mb-12 max-w-2xl mx-auto">
             Results-driven <span className="text-white">DevOps Engineer</span> with 4+ years of experience designing and operating cloud-native platforms on AWS and Azure.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <button 
               onClick={() => scrollTo('contact')}
-              className="px-8 py-4 bg-white text-black rounded-full font-semibold hover:bg-gray-200 transition-colors flex items-center gap-2"
+              className="group relative px-8 py-4 bg-blue-600 text-white rounded-2xl font-bold transition-all hover:bg-blue-700 hover:scale-105 flex items-center gap-3 shadow-lg shadow-blue-500/20"
             >
-              Get in touch <Mail className="w-4 h-4" />
+              <Mail className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+              Get in touch
             </button>
-            <a 
-              href="https://linkedin.com/in/wasimahamad" 
-              target="_blank" 
-              className="px-8 py-4 glass rounded-full font-semibold hover:bg-white/10 transition-colors flex items-center gap-2"
-            >
-              LinkedIn <Linkedin className="w-4 h-4" />
-            </a>
+            
+            <div className="flex items-center gap-2 p-1.5 glass rounded-2xl">
+              <a 
+                href="tel:8007370003" 
+                className="w-12 h-12 flex items-center justify-center rounded-xl hover:bg-white/10 transition-colors group"
+                title="Call"
+              >
+                <Phone className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
+              </a>
+              <div className="w-px h-6 bg-white/10" />
+              <a 
+                href="https://github.com/vasssiim" 
+                target="_blank" 
+                className="w-12 h-12 flex items-center justify-center rounded-xl hover:bg-white/10 transition-colors group"
+                title="GitHub"
+              >
+                <Github className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
+              </a>
+              <div className="w-px h-6 bg-white/10" />
+              <a 
+                href="https://linkedin.com/in/wasimahamad" 
+                target="_blank" 
+                className="w-12 h-12 flex items-center justify-center rounded-xl hover:bg-white/10 transition-colors group"
+                title="LinkedIn"
+              >
+                <Linkedin className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
+              </a>
+            </div>
           </div>
         </motion.div>
 
@@ -446,7 +469,10 @@ export default function App() {
               <Mail className="w-5 h-5" /> Say Hello
             </a>
             <div className="flex gap-3">
-              <a href="https://github.com/vasssim-portfolio/" target="_blank" className="w-14 h-14 glass rounded-2xl flex items-center justify-center hover:bg-white/10 transition-colors group">
+              <a href="tel:8007370003" className="w-14 h-14 glass rounded-2xl flex items-center justify-center hover:bg-white/10 transition-colors group">
+                <Phone className="w-6 h-6 group-hover:scale-110 transition-transform" />
+              </a>
+              <a href="https://github.com/vasssiim" target="_blank" className="w-14 h-14 glass rounded-2xl flex items-center justify-center hover:bg-white/10 transition-colors group">
                 <Github className="w-6 h-6 group-hover:scale-110 transition-transform" />
               </a>
               <a href="https://linkedin.com/in/wasimahamad" target="_blank" className="w-14 h-14 glass rounded-2xl flex items-center justify-center hover:bg-white/10 transition-colors group">
