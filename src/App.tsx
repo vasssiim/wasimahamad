@@ -123,6 +123,7 @@ const PROJECTS = [
   {
     title: "Cloud Platform Modernization (AWS EKS)",
     client: "Abbott India Ltd.",
+    link: "https://vasssiim.github.io/portfolio_EKSModernization/",
     points: [
       "Modernized 10+ mission-critical on-prem applications into microservices on Amazon EKS.",
       "Built a secure AWS landing zone (VPC, IAM, EKS, RDS, ElastiCache) using Terraform.",
@@ -132,6 +133,7 @@ const PROJECTS = [
   {
     title: "Automated Azure Infrastructure Provisioning",
     client: "Internal Project",
+    link: "https://github.com/vasssiim/portfolio_AzureAutomation",
     points: [
       "Provisioned Azure infrastructure using modular Terraform with secure remote state in Azure Storage.",
       "Built Azure DevOps pipelines for Terraform plan/apply and microservices releases with Key Vault integration.",
@@ -141,6 +143,7 @@ const PROJECTS = [
   {
     title: "Cloud-Native ETL Platform on AWS",
     client: "Data Engineering Project",
+    link: "https://github.com/vasssiim/portfolio_AWSETL",
     points: [
       "Architected a hybrid ETL platform using AWS Glue and Amazon EMR for large-scale serverless data processing.",
       "Implemented AWS Step Functions to orchestrate complex workloads with dynamic EMR cluster provisioning.",
@@ -150,6 +153,7 @@ const PROJECTS = [
   {
     title: "DevSecOps & IAM Governance Automation",
     client: "Security & Compliance Project",
+    link: "https://github.com/vasssiim/portfolio_DevSecOps",
     points: [
       "Built an enterprise-grade DevSecOps pipeline in Azure DevOps using Okta for automated identity lifecycle governance.",
       "Implemented Terraform for HIPAA-aligned Azure resource provisioning with version-controlled, auditable deployments.",
@@ -438,6 +442,17 @@ export default function App() {
                     </li>
                   ))}
                 </ul>
+                
+                {project.link && (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-8 inline-flex items-center gap-2 px-6 py-3 glass rounded-xl text-sm font-bold hover:bg-white/10 transition-all group/btn"
+                  >
+                    View Project <ExternalLink className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                  </a>
+                )}
               </div>
             </motion.div>
           ))}
