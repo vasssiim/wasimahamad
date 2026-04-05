@@ -10,6 +10,7 @@ import {
   Linkedin, 
   Mail, 
   Phone,
+  Download,
   ExternalLink, 
   ChevronRight,
   Server,
@@ -207,6 +208,16 @@ export default function App() {
               {item}
             </button>
           ))}
+          <div className="w-px h-4 bg-white/10 mx-2" />
+          <a 
+            href="/resume.pdf" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors flex items-center gap-2"
+          >
+            <Download className="w-4 h-4" />
+            Resume
+          </a>
         </motion.div>
       </nav>
 
@@ -245,6 +256,16 @@ export default function App() {
               <Mail className="w-5 h-5 group-hover:rotate-12 transition-transform" />
               Get in touch
             </button>
+
+            <a 
+              href="/resume.pdf" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-4 glass rounded-2xl font-bold hover:bg-white/10 transition-all hover:scale-105 flex items-center gap-3 border border-white/10"
+            >
+              <Download className="w-5 h-5" />
+              Resume
+            </a>
             
             <div className="flex items-center gap-2 p-1.5 glass rounded-2xl">
               <a 
@@ -477,6 +498,14 @@ export default function App() {
           </div>
           
           <div className="flex flex-col sm:flex-row items-center gap-4 shrink-0">
+            <a 
+              href="/resume.pdf" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto px-8 py-4 glass rounded-2xl font-bold hover:bg-white/10 transition-all hover:scale-105 flex items-center justify-center gap-3 border border-white/10"
+            >
+              <Download className="w-5 h-5" /> Resume
+            </a>
             <a 
               href="mailto:wasimahamad.mulla@gmail.com" 
               className="w-full sm:w-auto px-8 py-4 bg-blue-600 text-white rounded-2xl font-bold hover:bg-blue-700 transition-all hover:scale-105 flex items-center justify-center gap-3 shadow-lg shadow-blue-500/20"
