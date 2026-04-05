@@ -210,9 +210,10 @@ export default function App() {
           ))}
           <div className="w-px h-4 bg-white/10 mx-2" />
           <a 
-            href="/resume.pdf" 
+            href="resume.pdf" 
             target="_blank"
             rel="noopener noreferrer"
+            download="Wasimahamad_Mulla_Resume.pdf"
             className="text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors flex items-center gap-2"
           >
             <Download className="w-4 h-4" />
@@ -258,9 +259,10 @@ export default function App() {
             </button>
 
             <a 
-              href="/resume.pdf" 
+              href="resume.pdf" 
               target="_blank"
               rel="noopener noreferrer"
+              download="Wasimahamad_Mulla_Resume.pdf"
               className="px-8 py-4 glass rounded-2xl font-bold hover:bg-white/10 transition-all hover:scale-105 flex items-center gap-3 border border-white/10"
             >
               <Download className="w-5 h-5" />
@@ -499,9 +501,10 @@ export default function App() {
           
           <div className="flex flex-col sm:flex-row items-center gap-4 shrink-0">
             <a 
-              href="/resume.pdf" 
+              href="resume.pdf" 
               target="_blank"
               rel="noopener noreferrer"
+              download="Wasimahamad_Mulla_Resume.pdf"
               className="w-full sm:w-auto px-8 py-4 glass rounded-2xl font-bold hover:bg-white/10 transition-all hover:scale-105 flex items-center justify-center gap-3 border border-white/10"
             >
               <Download className="w-5 h-5" /> Resume
