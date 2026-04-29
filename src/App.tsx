@@ -134,7 +134,7 @@ const PROJECTS = [
   {
     title: "Automated Azure Infrastructure Provisioning",
     client: "Internal Project",
-    link: "https://github.com/vasssiim/portfolio_AzureAutomation",
+    link: "https://vasssiim.github.io/portfolio_AzureTerraform/",
     points: [
       "Provisioned Azure infrastructure using modular Terraform with secure remote state in Azure Storage.",
       "Built Azure DevOps pipelines for Terraform plan/apply and microservices releases with Key Vault integration.",
@@ -144,11 +144,21 @@ const PROJECTS = [
   {
     title: "Cloud-Native ETL Platform on AWS",
     client: "Data Engineering Project",
-    link: "https://github.com/vasssiim/portfolio_AWSETL",
+    link: "https://vasssiim.github.io/portfolio_ETLPlatform/",
     points: [
       "Architected a hybrid ETL platform using AWS Glue and Amazon EMR for large-scale serverless data processing.",
       "Implemented AWS Step Functions to orchestrate complex workloads with dynamic EMR cluster provisioning.",
       "Built a scalable S3/Lambda ingestion layer using medallion architecture for raw and processed data zones."
+    ]
+  },
+  {
+    title: "Blue-Green Deployment Infrastructure",
+    client: "CI/CD & DevOps Excellence",
+    link: "https://vasssiim.github.io/portfolio_BlueGreenDeployment/",
+    points: [
+      "Implemented zero-downtime deployment strategy using parallel Blue and Green environments.",
+      "Automated traffic switching between environments to ensure seamless transition and instant rollbacks.",
+      "Optimized release cycle reliability and production stability for mission-critical services."
     ]
   },
   {
@@ -168,7 +178,7 @@ export default function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "skills", "experience", "projects", "contact"];
+      const sections = ["home", "skills", "experience", "strategy", "projects", "contact"];
       const current = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
@@ -195,9 +205,9 @@ export default function App() {
         <motion.div 
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          className="glass rounded-full px-6 py-3 flex items-center gap-8"
+          className="glass rounded-full px-6 py-3 flex items-center gap-6"
         >
-          {["home", "skills", "experience", "projects", "contact"].map((item) => (
+          {["home", "skills", "experience", "strategy", "projects", "contact"].map((item) => (
             <button
               key={item}
               onClick={() => scrollTo(item)}
@@ -205,7 +215,7 @@ export default function App() {
                 activeSection === item ? "text-blue-400" : "text-gray-400"
               }`}
             >
-              {item}
+              {item === "strategy" ? "Strategy" : item}
             </button>
           ))}
           <div className="w-px h-4 bg-white/10 mx-2" />
@@ -432,6 +442,110 @@ export default function App() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Deployment Strategy Section */}
+      <section id="strategy" className="py-32 bg-black/40 border-y border-white/5 relative overflow-hidden">
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_50%_50%,rgba(16,185,129,0.05),transparent_70%)]" />
+        
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="mb-20 text-center">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-4xl md:text-5xl font-bold mb-6"
+            >
+              Deployment <span className="text-gradient">Strategy</span>
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="text-gray-400 max-w-2xl mx-auto text-lg"
+            >
+              Mastering high-availability release patterns to ensure zero-downtime and seamless user experiences in production environments.
+            </motion.p>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="glass rounded-[3rem] p-8 md:p-16 relative overflow-hidden"
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-400">
+                    <Activity className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-3xl font-bold">Blue-Green Deployment</h3>
+                </div>
+                
+                <p className="text-gray-400 text-lg leading-relaxed mb-8">
+                  A powerful release strategy that reduces downtime and risk by running two identical production environments. Traffic is routed to one (Blue) while the new version is tested in the other (Green), allowing for instant rollback if issues arise.
+                </p>
+
+                <div className="space-y-4 mb-10">
+                  {[
+                    "Zero Downtime Releases",
+                    "Instant Rollback Capability",
+                    "Parallel Environment Testing",
+                    "Reduced Deployment Risk"
+                  ].map((feat, i) => (
+                    <div key={i} className="flex items-center gap-3 text-gray-300">
+                      <div className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                      {feat}
+                    </div>
+                  ))}
+                </div>
+
+                <a
+                  href="https://vasssiim.github.io/portfolio_BlueGreenDeployment/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 px-8 py-4 bg-emerald-600 text-white rounded-2xl font-bold hover:bg-emerald-700 transition-all hover:scale-105 shadow-xl shadow-emerald-500/20"
+                >
+                  View Deployment Live <ExternalLink className="w-5 h-5" />
+                </a>
+              </div>
+
+              <div className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/20 to-blue-500/20 blur-3xl opacity-50 group-hover:opacity-80 transition-opacity" />
+                <div className="relative glass rounded-3xl p-8 border border-white/10 flex flex-col gap-8">
+                  {/* Visual representation of Blue-Green */}
+                  <div className="flex justify-between items-center px-4">
+                    <div className="flex flex-col items-center gap-3">
+                      <div className="w-16 h-16 rounded-2xl bg-blue-500/20 flex items-center justify-center text-blue-400 border border-blue-500/30">
+                        <Server className="w-8 h-8" />
+                      </div>
+                      <span className="text-xs font-mono font-bold text-blue-400">BLUE (OLD)</span>
+                    </div>
+                    <div className="flex-1 flex justify-center">
+                      <div className="w-12 h-px bg-gradient-to-r from-blue-500/50 to-emerald-500/50 relative">
+                        <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded-full bg-white/5 border border-white/10 text-[8px] font-bold">ROUTE</div>
+                      </div>
+                    </div>
+                    <div className="flex flex-col items-center gap-3">
+                      <div className="w-16 h-16 rounded-2xl bg-emerald-500/30 flex items-center justify-center text-emerald-400 border border-emerald-500/50 shadow-lg shadow-emerald-500/20 animate-pulse">
+                        <Server className="w-8 h-8" />
+                      </div>
+                      <span className="text-xs font-mono font-bold text-emerald-400 uppercase">Green (New)</span>
+                    </div>
+                  </div>
+
+                  <div className="p-4 rounded-xl bg-white/5 border border-white/5 space-y-3">
+                    <div className="h-2 w-3/4 bg-white/10 rounded-full" />
+                    <div className="h-2 w-1/2 bg-white/10 rounded-full" />
+                    <div className="h-2 w-2/3 bg-white/10 rounded-full" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
