@@ -152,16 +152,6 @@ const PROJECTS = [
     ]
   },
   {
-    title: "Blue-Green Deployment Infrastructure",
-    client: "CI/CD & DevOps Excellence",
-    link: "https://vasssiim.github.io/portfolio_BlueGreenDeployment/",
-    points: [
-      "Implemented zero-downtime deployment strategy using parallel Blue and Green environments.",
-      "Automated traffic switching between environments to ensure seamless transition and instant rollbacks.",
-      "Optimized release cycle reliability and production stability for mission-critical services."
-    ]
-  },
-  {
     title: "DevSecOps & IAM Governance Automation",
     client: "Security & Compliance Project",
     link: "https://github.com/vasssiim/portfolio_DevSecOps",
@@ -505,8 +495,6 @@ export default function App() {
 
                 <a
                   href="https://vasssiim.github.io/portfolio_BlueGreenDeployment/"
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-3 px-8 py-4 bg-emerald-600 text-white rounded-2xl font-bold hover:bg-emerald-700 transition-all hover:scale-105 shadow-xl shadow-emerald-500/20"
                 >
                   View Deployment Live <ExternalLink className="w-5 h-5" />
@@ -583,8 +571,6 @@ export default function App() {
                 {project.link && (
                   <a
                     href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className="mt-8 inline-flex items-center gap-2 px-6 py-3 glass rounded-xl text-sm font-bold hover:bg-white/10 transition-all group/btn"
                   >
                     View Project <ExternalLink className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
